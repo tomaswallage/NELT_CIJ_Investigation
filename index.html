@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hostile Environments</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ── Header ─────────────────────────────────────────────────── -->
+    <header class="site-header">
+      <div class="site-title"><span>▪</span> Hostile Environments</div>
+
+      <nav>
+        <ul class="nav-tabs">
+          <li>
+            <button class="active" onclick="switchTab('main', this)">
+              Main
+            </button>
+          </li>
+          <li>
+            <button onclick="switchTab('timeline', this)">
+              March Timeline
+            </button>
+          </li>
+          <li><button onclick="switchTab('media', this)">Media</button></li>
+          <li>
+            <button onclick="switchTab('glossary', this)">Glossary</button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- TAB 1 — MAIN PAGE                                           -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <main id="tab-main" class="tab-panel active">
+      <section class="hero">
+        <!-- <p class="hero-eyebrow">Research Project · 2025–2026</p> -->
+        <h1>Hostile Environments</h1>
+        <p class="hero-intro">
+          Investigating the ‘Hostile Environment’ online, how right-wing networks manufacture false narratives.
+        </p>
+        <p class="hero-intro">
+          The term ‘hostile environment’ refers to hostility as the weather opposed to an explicit and sudden crisis; it is a steady background condition rather than a one-off event. The violence it describes is slow and ordinary and it hides in plain sight. It is normalised by feedback loops (created by influential people) and the words they use to describe it. 
+        </p>
+        <a href="#" class="hero-cta">Read the Report ↗</a>
+      </section>
+
+      <!-- <div class="content-grid">
+        <div class="content-card">
+          <h3>Perspective 01</h3>
+          <h2>First Thematic Section</h2>
+          <p>
+            Brief description of this research strand. What does it investigate?
+            What evidence does it draw on?
+          </p>
+        </div>
+        <div class="content-card">
+          <h3>Perspective 02</h3>
+          <h2>Second Thematic Section</h2>
+          <p>
+            Brief description of this research strand. What does it investigate?
+            What evidence does it draw on?
+          </p>
+        </div>
+        <div class="content-card">
+          <h3>Perspective 03</h3>
+          <h2>Third Thematic Section</h2>
+          <p>
+            Brief description of this research strand. What does it investigate?
+            What evidence does it draw on?
+          </p>
+        </div>
+      </div> -->
+    </main>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- TAB 2 — MARCH TIMELINE                                      -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <main id="tab-timeline" class="tab-panel">
+      <div class="section-header">
+        <h3>Chronology</h3>
+        <h2>March Timeline</h2>
+      </div>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- TAB 3 — MEDIA                                               -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <main id="tab-media" class="tab-panel">
+      <div class="section-header">
+        <h3>Documentation</h3>
+        <h2>Media</h2>
+      </div>
+
+      <div class="media-grid">
+        <div class="media-card">
+          <div class="media-thumb">
+            <span class="media-thumb-placeholder">Image / Video</span>
+            <div class="media-thumb-icon">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#e05a1e"
+                stroke-width="1.5"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <polygon
+                  points="10 8 16 12 10 16 10 8"
+                  fill="#e05a1e"
+                  stroke="none"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="media-card-body">
+            <div class="media-tag">Video</div>
+            <h2>Media Item Title</h2>
+            <p>
+              Short description of this media item. Source, date, or context.
+            </p>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <span class="media-thumb-placeholder">Image / Video</span>
+            <div class="media-thumb-icon">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#e05a1e"
+                stroke-width="1.5"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 9h18M9 21V9" />
+              </svg>
+            </div>
+          </div>
+          <div class="media-card-body">
+            <div class="media-tag">Image</div>
+            <h2>Media Item Title</h2>
+            <p>
+              Short description of this media item. Source, date, or context.
+            </p>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <span class="media-thumb-placeholder">Image / Video</span>
+            <div class="media-thumb-icon">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#e05a1e"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
+            </div>
+          </div>
+          <div class="media-card-body">
+            <div class="media-tag">Document</div>
+            <h2>Media Item Title</h2>
+            <p>
+              Short description of this media item. Source, date, or context.
+            </p>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <span class="media-thumb-placeholder">Image / Video</span>
+            <div class="media-thumb-icon">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#e05a1e"
+                stroke-width="1.5"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <polygon
+                  points="10 8 16 12 10 16 10 8"
+                  fill="#e05a1e"
+                  stroke="none"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="media-card-body">
+            <div class="media-tag">Video</div>
+            <h2>Media Item Title</h2>
+            <p>
+              Short description of this media item. Source, date, or context.
+            </p>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <span class="media-thumb-placeholder">Image / Video</span>
+            <div class="media-thumb-icon">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#e05a1e"
+                stroke-width="1.5"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 9h18M9 21V9" />
+              </svg>
+            </div>
+          </div>
+          <div class="media-card-body">
+            <div class="media-tag">Image</div>
+            <h2>Media Item Title</h2>
+            <p>
+              Short description of this media item. Source, date, or context.
+            </p>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <span class="media-thumb-placeholder">Image / Video</span>
+            <div class="media-thumb-icon">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#e05a1e"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
+            </div>
+          </div>
+          <div class="media-card-body">
+            <div class="media-tag">Document</div>
+            <h2>Media Item Title</h2>
+            <p>
+              Short description of this media item. Source, date, or context.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- TAB 4 — GLOSSARY                                            -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <main id="tab-glossary" class="tab-panel">
+      <div class="section-header">
+        <h3>Terminology</h3>
+        <h2>Glossary</h2>
+      </div>
+
+      <div class="glossary-list">
+        <div class="glossary-item">
+          <div class="glossary-term">
+            <strong>Term One</strong>
+            <span>Category</span>
+          </div>
+          <div class="glossary-def">
+            Definition of the term. Explain what it means in the context of this
+            project, its legal or spatial significance, and any relevant nuance.
+          </div>
+        </div>
+
+        <div class="glossary-item">
+          <div class="glossary-term">
+            <strong>Term Two</strong>
+            <span>Category</span>
+          </div>
+          <div class="glossary-def">
+            Definition of the term. Explain what it means in the context of this
+            project, its legal or spatial significance, and any relevant nuance.
+          </div>
+        </div>
+
+        <div class="glossary-item">
+          <div class="glossary-term">
+            <strong>Term Three</strong>
+            <span>Legal</span>
+          </div>
+          <div class="glossary-def">
+            Definition of the term. Explain what it means in the context of this
+            project, its legal or spatial significance, and any relevant nuance.
+          </div>
+        </div>
+
+        <div class="glossary-item">
+          <div class="glossary-term">
+            <strong>Term Four</strong>
+            <span>Spatial</span>
+          </div>
+          <div class="glossary-def">
+            Definition of the term. Explain what it means in the context of this
+            project, its legal or spatial significance, and any relevant nuance.
+          </div>
+        </div>
+
+        <div class="glossary-item">
+          <div class="glossary-term">
+            <strong>Term Five</strong>
+            <span>Political</span>
+          </div>
+          <div class="glossary-def">
+            Definition of the term. Explain what it means in the context of this
+            project, its legal or spatial significance, and any relevant nuance.
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ── Footer ─────────────────────────────────────────────────── -->
+    <footer>
+      <p class="footer-note">Project Title · 2025–2026</p>
+      <p class="footer-note">Institution Name</p>
+    </footer>
+  </body>
+</html>
