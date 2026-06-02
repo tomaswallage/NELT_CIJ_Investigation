@@ -483,6 +483,10 @@ strong {
   margin-bottom: 0.75rem;
 }
 
+.media-card:hover .media-item-title {
+  color: var(--bg);
+}
+
 /* ── Glossary ──────────────────────────────────────────────────── */
 .glossary-list {
   border-top: 1px solid var(--border);
