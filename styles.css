@@ -617,9 +617,9 @@ strong {
 
   --rail-start: 1.5rem;
   --rail-gap: 0.45rem;
-  --rail-cols: 2;
+  --rail-cols: 3;
   --rail-col-width: calc(
-    (100% - var(--rail-start) - (2 * var(--rail-gap))) / 2
+    (100% - var(--rail-start) - (2 * var(--rail-gap))) / 3 + 10px
   );
 }
 
@@ -634,7 +634,7 @@ strong {
   );
   width: var(--rail-col-width);
 
-  padding: 0.6rem 0.65rem;
+  padding: 0.4rem 0.55rem;
   border: 1px solid var(--border);
   background: rgba(224, 90, 30, 0.04);
   transform: translateY(-50%);
@@ -661,7 +661,7 @@ strong {
 }
 
 .law-marker p {
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   line-height: 1.35;
   color: var(--text);
   max-width: none;
