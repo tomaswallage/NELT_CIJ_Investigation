@@ -14,7 +14,8 @@
   --text-muted: #8d857f;
   --accent: #e05a1e;
   --accent-dim: #7a3010;
-  /* --white: #f2ede8; */
+  --accent-complement: #4aa6cf;
+  --white: #f2ede8;
   --mono: "IBM Plex Mono", monospace;
   /* --sans: "IBM Plex Sans", sans-serif; */
   --sans: "Helvetica Neue", sans-serif;
@@ -38,12 +39,12 @@ body {
 
 .custom-cursor {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: -10px;
+  left: -10px;
   width: 20px;       /* Adjust size as needed */
   height: 20px;      /* Should match width */
   border-radius: 50%;
-  background-color: #007bff; /* Circle color */
+  background-color: var(--accent-complement); /* Circle color */
   pointer-events: none;      /* Crucial so you can still click items */
   transform: translate(-50%, -50%); /* Centers the circle perfectly on the tip */
   z-index: 9999; 
@@ -62,7 +63,7 @@ h2 {
   font-family: var(--sans);
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 400;
-  color: var(--white);
+  color: var(--text);
   line-height: 1.25;
 }
 h3 {
@@ -87,7 +88,7 @@ a:hover {
 }
 
 strong {
-  color: var(--white);
+  color: var(--text);
   font-weight: 600;
 }
 
@@ -110,7 +111,7 @@ strong {
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--text);
 }
 
 .site-title span {
@@ -413,6 +414,285 @@ strong {
   flex-shrink: 0;
 }
 
+/* ── Rhetoric Map ─────────────────────────────────────────────── */
+.rhetoric-map {
+  padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 4rem;
+}
+
+.rhetoric-map-meta {
+  margin-bottom: 1.5rem;
+}
+
+.rhetoric-map-note {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  max-width: none;
+}
+
+.rhetoric-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.rhetoric-stage-wrap {
+  position: relative;
+  padding: 1.5rem 1rem 3.25rem 4.5rem;
+  min-height: 1120px;
+  border: 1px solid var(--border);
+  background: linear-gradient(
+    180deg,
+    rgba(224, 90, 30, 0.03) 0%,
+    rgba(224, 90, 30, 0) 28%
+  );
+  overflow: visible;
+}
+
+.rhetoric-stage {
+  position: relative;
+  height: 1080px;
+  border-left: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.rhetoric-axis-label {
+  position: absolute;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.rhetoric-axis-label-y {
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left top;
+}
+
+.rhetoric-axis-label-x {
+  bottom: 0.85rem;
+}
+
+.rhetoric-axis-label-x-left {
+  left: 4.5rem;
+}
+
+.rhetoric-axis-label-x-right {
+  right: 1rem;
+}
+
+.rhetoric-grid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px dashed rgba(42, 42, 42, 0.35);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-top: 0.35rem;
+}
+
+.rhetoric-grid-top { top: 0%; }
+.rhetoric-grid-mid-0 { top: 15%; }
+.rhetoric-grid-mid-1 { top: 30%; }
+.rhetoric-grid-mid-2 { top: 46%; }
+.rhetoric-grid-mid-3 { top: 63%; }
+.rhetoric-grid-mid-4 { top: 79.5%; }
+.rhetoric-grid-bottom { top: 96%; }
+
+.rhetoric-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.rhetoric-line {
+  fill: none;
+  stroke: var(--accent-dim);
+  stroke-width: 0.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.6;
+  transform: translateY(0.5px) translateX(0.4px);
+}
+
+.rhetoric-node {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.rhetoric-point {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  box-shadow: 0 0 0 1px var(--accent);
+  display: block;
+  padding: 0;
+  cursor: none;
+  position: relative;
+  z-index: 2;
+}
+
+.rhetoric-point:hover,
+.rhetoric-point:focus-visible {
+  transform: scale(1.18);
+  background: var(--accent-complement);
+  box-shadow: 0 0 0 1px var(--accent-complement);
+  outline: none;
+}
+
+.rhetoric-tooltip {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%) translate(var(--tooltip-x, 18px), var(--tooltip-y, 0px));
+  width: 220px;
+  padding: 0.85rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0.18s ease;
+  z-index: 5;
+}
+
+.rhetoric-node:hover .rhetoric-tooltip,
+.rhetoric-node:focus-within .rhetoric-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(6px);
+}
+
+.rhetoric-node-year {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.rhetoric-tooltip h4 {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+}
+
+.rhetoric-tooltip p {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: none;
+}
+
+.legislation-rail {
+  position: relative;
+  min-height: 1100px;
+  border-left: 1px solid var(--border);
+  padding-left: 1.5rem;
+
+  --rail-start: 1.5rem;
+  --rail-gap: 0.45rem;
+  --rail-cols: 2;
+  --rail-col-width: calc(
+    (100% - var(--rail-start) - (2 * var(--rail-gap))) / 2
+  );
+}
+
+.law-marker {
+  --col: 1;
+
+  position: absolute;
+  top: 0;
+  left: calc(
+    var(--rail-start) +
+    ((var(--col) - 1) * (var(--rail-col-width) + var(--rail-gap)))
+  );
+  width: var(--rail-col-width);
+
+  padding: 0.6rem 0.65rem;
+  border: 1px solid var(--border);
+  background: rgba(224, 90, 30, 0.04);
+  transform: translateY(-50%);
+}
+
+.law-marker::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -1rem;
+  width: 0.5rem;
+  height: 0.7px;
+  background: var(--bg);
+}
+
+.law-year {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.law-marker p {
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--text);
+  max-width: none;
+}
+
+@media (max-width: 980px) {
+  .rhetoric-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .legislation-rail {
+    min-height: 520px;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+
+  .rhetoric-stage-wrap {
+    min-height: 720px;
+  }
+
+  .rhetoric-stage {
+    height: 660px;
+  }
+
+  .rhetoric-node {
+    width: 160px;
+  }
+}
+
 /* ── Media ─────────────────────────────────────────────────────── */
 .media-grid {
   display: grid;
@@ -480,7 +760,7 @@ strong {
   font-size: 0.95rem;
   font-family: var(--sans);
   font-weight: 600;
-  color: var(--white);
+  color: var(--text);
   margin-bottom: 0.4rem;
 }
 .media-card-body p {
@@ -527,9 +807,7 @@ strong {
   border-right: 1px solid var(--border);
 }
 
-.glossary-item:hover .glossary-term{
-  padding: 1.8rem clamp(1.5rem, 4vw, 3rem);
-  border-right: 1px solid var(--border);
+.glossary-item:hover .glossary-term strong{
   color: var(--bg);
 }
 
@@ -538,7 +816,6 @@ strong {
   font-family: var(--sans);
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--white);
   margin-bottom: 0.25rem;
 }
 
