@@ -119,7 +119,7 @@ strong {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0 1.25rem;
+  padding: 0 1.05rem;
   height: var(--nav-h);
   border-bottom: 2px solid transparent;
   transition:
@@ -328,6 +328,75 @@ strong {
   flex-shrink: 0;
 }
 
+/* ── Rhetoric Timeline ──────────────────────────────────────────────────── */
+.rhetoric {
+  padding: 3rem clamp(1.5rem, 5vw, 4rem);
+  position: relative;
+}
+
+.rhetoric::before {
+  content: "";
+  position: absolute;
+  left: clamp(1.5rem, 5vw, 4rem);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.rhetoric-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2rem;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.rhetoric-item + .rhetoric-item {
+  border-top: 1px solid var(--border);
+}
+
+.rhetoric-date {
+  padding: 2rem 0;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: flex-start;
+  padding-top: 2.1rem;
+}
+
+.rhetoric-body {
+  padding: 1.8rem 0 1.8rem 2rem;
+  border-left: 1px solid var(--border);
+}
+
+.rhetoric-body h2 {
+  font-size: 1.05rem;
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.rhetoric-body p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.rhetoric-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  position: absolute;
+  left: 156px;
+  top: 2.5rem;
+  flex-shrink: 0;
+}
+
 /* ── Media ─────────────────────────────────────────────────────── */
 .media-grid {
   display: grid;
@@ -429,11 +498,18 @@ strong {
 
 .glossary-item:hover {
   background: var(--surface);
+  
 }
 
 .glossary-term {
   padding: 1.8rem clamp(1.5rem, 4vw, 3rem);
   border-right: 1px solid var(--border);
+}
+
+.glossary-item:hover .glossary-term{
+  padding: 1.8rem clamp(1.5rem, 4vw, 3rem);
+  border-right: 1px solid var(--border);
+  color: var(--bg);
 }
 
 .glossary-term strong {
@@ -465,7 +541,8 @@ footer {
   border-top: 1px solid var(--border);
   padding: 2rem clamp(1.5rem, 5vw, 4rem);
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+  vertical-align: text-top;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
@@ -474,8 +551,9 @@ footer {
 .footer-note {
   font-family: var(--mono);
   font-size: 0.65rem;
+  text-align: right;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.07em;
   color: var(--text-muted);
 }
 
