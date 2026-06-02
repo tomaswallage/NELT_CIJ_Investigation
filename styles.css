@@ -640,6 +640,10 @@ strong {
   transform: translateY(-50%);
 }
 
+.law-marker:hover {
+  background: var(--surface);
+}
+
 .law-marker::before {
   content: "";
   position: absolute;
@@ -647,7 +651,7 @@ strong {
   left: -1rem;
   width: 0.5rem;
   height: 0.7px;
-  background: var(--bg);
+  background: none;
 }
 
 .law-year {
@@ -664,6 +668,13 @@ strong {
   font-size: 0.65rem;
   line-height: 1.35;
   color: var(--text);
+  max-width: none;
+}
+
+.law-marker:hover p {
+  font-size: 0.65rem;
+  line-height: 1.35;
+  color: var(--white);
   max-width: none;
 }
 
