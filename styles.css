@@ -24,6 +24,7 @@
 
 html {
   scroll-behavior: smooth;
+  cursor: none;
 }
 
 body {
@@ -33,6 +34,19 @@ body {
   font-size: 16px;
   line-height: 1.7;
   min-height: 100vh;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;       /* Adjust size as needed */
+  height: 20px;      /* Should match width */
+  border-radius: 50%;
+  background-color: #007bff; /* Circle color */
+  pointer-events: none;      /* Crucial so you can still click items */
+  transform: translate(-50%, -50%); /* Centers the circle perfectly on the tip */
+  z-index: 9999; 
 }
 
 /* ── Typography ────────────────────────────────────────────────── */
@@ -68,7 +82,8 @@ a {
   text-decoration: none;
 }
 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
+  cursor: none;
 }
 
 strong {
@@ -130,6 +145,7 @@ strong {
 
 .nav-tabs li button:hover {
   color: var(--text);
+  cursor: none;
 }
 
 .nav-tabs li button.active {
@@ -415,6 +431,7 @@ strong {
 
 .media-card:hover {
   background: var(--surface);
+  cursor: none;
 }
 
 .media-thumb {
