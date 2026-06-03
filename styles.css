@@ -6,6 +6,11 @@
   padding: 0;
 }
 
+@font-face {
+  font-family: "TWKLausannePan";
+  src: url("TWKLausannePan-350.otf") format("opentype");
+}
+
 :root {
   --bg: #ffffff;
   --surface: #141414;
@@ -18,7 +23,7 @@
   --white: #f2ede8;
   --mono: "IBM Plex Mono", monospace;
   /* --sans: "IBM Plex Sans", sans-serif; */
-  --sans: "Helvetica Neue", sans-serif;
+  --sans: "TWKLausannePan", sans-serif;
   --serif: "Playfair Display", serif;
   --nav-h: 46px;
 }
@@ -104,6 +109,7 @@ strong {
   padding: 3rem clamp(0.75rem, 1.5vw, 2rem);
   display: flex;
   align-items: center;
+  width: clamp(20rem, 25vw, 28rem);
   height: 100vh;
   position: sticky;
   z-index: 100;
@@ -209,7 +215,9 @@ strong {
 
 .hero h1 {
   margin-bottom: 2rem;
-  max-width: 18ch;
+  color: var(--accent);
+  /* max-width: 18ch; */
+  width: 50vw;
 }
 
 .hero-intro {
