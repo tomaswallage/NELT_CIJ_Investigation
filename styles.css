@@ -146,9 +146,9 @@ strong {
 
 .nav-tabs li button {
   font-family: var(--sans);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-align: left;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.09em;
   color: var(--text-muted);
   background: none;
   border: none;
