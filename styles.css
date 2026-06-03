@@ -914,6 +914,112 @@ strong {
   }
 }
 
+/* ── Rhetoric Chart ────────────────────────────────────────────── */
+.rhetoric-chart-section {
+  padding: 0 clamp(1.5rem, 5vw, 4rem) 4rem;
+}
+
+.rhetoric-chart-meta {
+  margin-bottom: 1.25rem;
+}
+
+.rhetoric-chart-note {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  max-width: none;
+}
+
+.rhetoric-chart-panel {
+  border: 1px solid var(--border);
+  background: linear-gradient(
+    180deg,
+    rgba(224, 90, 30, 0.03) 0%,
+    rgba(224, 90, 30, 0) 28%
+  );
+  padding: 1.25rem 1rem 1rem;
+  overflow: hidden;
+}
+
+#frame-comparison-chart {
+  width: 100%;
+  min-height: 620px;
+}
+
+/* Optional: makes Plotly inherit the site feel a bit better */
+.rhetoric-chart-panel .plotly .modebar {
+  display: none !important;
+}
+
+@media (max-width: 1100px) {
+  .rhetoric-chart-section {
+    padding: 0 clamp(1.25rem, 4vw, 3rem) 3.5rem;
+  }
+
+  #frame-comparison-chart {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 720px) {
+  .rhetoric-chart-section {
+    padding: 0 1rem 3rem;
+  }
+
+  .rhetoric-chart-panel {
+    padding: 1rem 0.75rem 0.75rem;
+  }
+
+  #frame-comparison-chart {
+    min-height: 460px;
+  }
+}
+
+.rhetoric-chart-text {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 2.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.rhetoric-chart-text-block {
+  border: 1px solid var(--border);
+  padding: 2rem 1.1rem;
+  background: rgba(224, 90, 30, 0.02);
+}
+
+.rhetoric-chart-text-block h4 {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+}
+
+.rhetoric-chart-text-block p {
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: none;
+}
+
+.rhetoric-chart-text-block p + p {
+  margin-top: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  .rhetoric-chart-text {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── Media ─────────────────────────────────────────────────────── */
 .media-grid {
   display: grid;
