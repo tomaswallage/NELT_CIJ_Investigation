@@ -59,6 +59,456 @@ body {
   z-index: 9999;
 }
 
+/* ── March Embedded Timeline ───────────────────────────────────── */
+
+.march-embed {
+  padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 4rem;
+}
+
+.march-panel {
+  border: 1px solid var(--border);
+  background: linear-gradient(
+    180deg,
+    rgba(224, 30, 30, 0.03) 0%,
+    rgba(224, 30, 30, 0) 28%
+  );
+  overflow: hidden;
+}
+
+.march-stage {
+  --march-stage-h: clamp(760px, 84vh, 1080px);
+  display: grid;
+  grid-template-columns: clamp(260px, 27vw, 360px) minmax(280px, 1fr) 72px 54px;
+  grid-template-areas: "media map time track";
+  gap: clamp(1rem, 2.5vw, 2rem);
+  min-height: var(--march-stage-h);
+  padding: clamp(1rem, 2vw, 1.5rem);
+  position: relative;
+  align-items: stretch;
+  isolation: isolate;
+}
+
+/* Layering */
+
+.march-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.march-media,
+.march-time-col,
+.march-track-col {
+  position: relative;
+  z-index: 3;
+}
+
+.march-map-col {
+  grid-area: map;
+  min-width: 0;
+  min-height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.march-map-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Media column */
+
+.march-media {
+  grid-area: media;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-right: 0.25rem;
+}
+
+.march-caption {
+  width: fit-content;
+  max-width: 100%;
+  border: 1.5px solid #c8102e;
+  background: var(--bg);
+  padding: 0.8rem 0.9rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04);
+}
+
+.march-caption-time {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+
+.march-caption-text {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #012169;
+  white-space: pre-wrap;
+  max-width: 34ch;
+}
+
+.march-video-frame {
+  margin-top: auto;
+  align-self: flex-end;
+  border: 1px solid #aab2bd;
+  background: #eef0f3;
+  position: relative;
+  overflow: hidden;
+}
+
+.march-video-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid #aab2bd;
+  pointer-events: none;
+}
+
+.march-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: #eef0f3;
+}
+
+/* Time / track columns */
+
+.march-time-col {
+  grid-area: time;
+}
+
+.march-track-col {
+  grid-area: track;
+}
+
+.march-time-axis,
+.march-track {
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+}
+
+.march-time-axis-line,
+.march-track-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: #aab2bd;
+}
+
+.march-time-ticks,
+.march-track-ticks {
+  position: absolute;
+  inset: 0;
+}
+
+.march-time-tick,
+.march-track-tick {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #012169;
+  transition: background 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+.march-time-tick,
+.march-track-tick {
+  width: 12px;
+  height: 1.5px;
+}
+
+.march-time-tick.is-active,
+.march-track-tick.is-active {
+  background: #c8102e;
+  width: 18px;
+  height: 2px;
+}
+
+.march-axis-end {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #aab2bd;
+  white-space: nowrap;
+}
+
+.march-axis-end-top {
+  top: -1.1rem;
+}
+
+.march-axis-end-bottom {
+  bottom: -1.1rem;
+}
+
+.march-active-time {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c8102e;
+  white-space: nowrap;
+  background: var(--bg);
+  padding: 0 0.2rem;
+}
+
+.march-track {
+  touch-action: none;
+  outline: none;
+}
+
+.march-track:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(224, 30, 30, 0.2);
+}
+
+.march-handle {
+  position: absolute;
+  left: 50%;
+  width: 36px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+  border: 0;
+  background: transparent;
+  cursor: grab;
+}
+
+.march-handle::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 50%;
+  height: 2.5px;
+  transform: translateY(-50%);
+  background: #c8102e;
+}
+
+.march-handle:active {
+  cursor: grabbing;
+}
+
+/* Overlay graphics */
+
+.march-overlay-path-base {
+  fill: none;
+  stroke: #c6ccd4;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.march-overlay-path-progress {
+  fill: none;
+  stroke: #012169;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.march-overlay-end {
+  fill: none;
+  stroke: #aab2bd;
+  stroke-width: 1;
+}
+
+.march-overlay-point {
+  fill: rgba(1, 33, 105, 0.12);
+  stroke: rgba(1, 33, 105, 0.9);
+  stroke-width: 0.75;
+}
+
+.march-overlay-point.is-active {
+  fill: #c8102e;
+  stroke: #c8102e;
+}
+
+.march-overlay-playhead {
+  fill: #c8102e;
+}
+
+.march-connector-line {
+  stroke: #c8102e;
+  stroke-width: 1.4;
+  fill: none;
+}
+
+.march-connector-beam {
+  fill: rgba(200, 16, 46, 0.07);
+  stroke: none;
+}
+
+/* Medium desktop: collapse slightly earlier, but keep same layout */
+@media (max-width: 1100px) {
+  .march-stage {
+    grid-template-columns: clamp(220px, 26vw, 300px) minmax(220px, 1fr) 62px 48px;
+    gap: 1rem;
+    --march-stage-h: clamp(700px, 78vh, 920px);
+  }
+
+  .march-caption-text {
+    max-width: 30ch;
+    font-size: 0.78rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 920px) {
+  .march-stage {
+    grid-template-columns: minmax(0, 1fr) 60px 46px;
+    grid-template-areas:
+      "media media media"
+      "map time track";
+    --march-stage-h: auto;
+    min-height: 0;
+    align-items: start;
+  }
+
+  .march-map-col,
+  .march-time-col,
+  .march-track-col {
+    min-height: clamp(540px, 72vh, 760px);
+  }
+
+  .march-media {
+    min-height: 0;
+    padding-right: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .march-map-col {
+    min-height: clamp(540px, 72vh, 760px);
+  }
+
+  .march-caption {
+    max-width: 100%;
+  }
+
+  .march-caption-text {
+    max-width: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .march-embed {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .march-stage {
+    grid-template-columns: minmax(0, 1fr) 54px 40px;
+    padding: 0.9rem;
+    gap: 0.75rem;
+  }
+
+  .march-map-col {
+    min-height: 460px;
+  }
+
+  .march-axis-end,
+  .march-active-time,
+  .march-caption-time {
+    font-size: 0.56rem;
+  }
+
+  .march-caption-text {
+    font-size: 0.74rem;
+  }
+}
+
+@media (max-width: 920px) {
+  .march-stage {
+    grid-template-columns: minmax(0, 1fr) 60px 46px;
+    grid-template-areas:
+      "media media media"
+      "map time track";
+    --march-stage-h: auto;
+    min-height: 0;
+    align-items: start;
+  }
+
+  .march-media {
+    min-height: 0;
+    padding-right: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .march-map-col,
+  .march-time-col,
+  .march-track-col {
+    min-height: clamp(540px, 72vh, 760px);
+  }
+
+  .march-time-axis,
+  .march-track {
+    height: 100%;
+    min-height: 100%;
+  }
+
+  .march-caption {
+    max-width: 100%;
+  }
+
+  .march-caption-text {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .march-embed {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .march-stage {
+    grid-template-columns: minmax(0, 1fr) 54px 40px;
+    padding: 0.9rem;
+    gap: 0.75rem;
+  }
+
+  .march-map-col,
+  .march-time-col,
+  .march-track-col {
+    min-height: 460px;
+  }
+
+  .march-axis-end,
+  .march-active-time,
+  .march-caption-time {
+    font-size: 0.56rem;
+  }
+
+  .march-caption-text {
+    font-size: 0.74rem;
+  }
+}
+
 /* ── Typography ────────────────────────────────────────────────── */
 h1 {
   font-family: var(--sans);

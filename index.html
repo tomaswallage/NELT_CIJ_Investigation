@@ -11,8 +11,10 @@
       rel="stylesheet"
     />
     <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-    <script src="script.js"></script>
-    <script src="rhetoric-graph.js"></script>
+    <script src="march_timeline.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="rhetoric-graph.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -107,11 +109,84 @@
     <!-- TAB 2 — MARCH TIMELINE                                      -->
     <!-- ════════════════════════════════════════════════════════════ -->
     <main id="tab-timeline" class="tab-panel">
-      <div class="section-header">
-        <h3>Chronology</h3>
-        <h2>March Timeline</h2>
+  <div class="section-header">
+    <h3>Chronology</h3>
+    <h2>March Timeline</h2>
+  </div>
+
+  <section class="march-embed">
+    <div class="march-panel" id="march-root">
+      <div class="march-stage" id="march-stage">
+        <svg
+          class="march-overlay"
+          id="march-overlay"
+          aria-hidden="true"
+          preserveAspectRatio="none"
+        ></svg>
+
+        <aside class="march-media" id="march-media">
+          <div class="march-caption" id="march-caption" hidden>
+            <div class="march-caption-time" id="march-caption-time"></div>
+            <div class="march-caption-text" id="march-caption-text"></div>
+          </div>
+
+          <figure class="march-video-frame" id="march-video-frame" hidden>
+            <video
+              id="march-video"
+              class="march-video"
+              playsinline
+              muted
+              loop
+              preload="metadata"
+            ></video>
+          </figure>
+        </aside>
+
+        <div class="march-map-col" id="march-map-col">
+          <img
+            src="map_image.png"
+            alt="Map of the march route"
+            class="march-map-image"
+            id="march-map-image"
+            draggable="false"
+          />
+        </div>
+
+        <div class="march-time-col">
+          <div class="march-time-axis" id="march-time-axis">
+            <div class="march-time-axis-line"></div>
+            <div class="march-time-ticks" id="march-time-ticks"></div>
+            <div class="march-axis-end march-axis-end-top">9 AM</div>
+            <div class="march-axis-end march-axis-end-bottom">11:59 PM</div>
+            <div class="march-active-time" id="march-active-time" hidden></div>
+          </div>
+        </div>
+
+        <div class="march-track-col">
+          <div
+            class="march-track"
+            id="march-track"
+            role="slider"
+            aria-label="Scrub through the march route"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            tabindex="0"
+          >
+            <div class="march-track-line"></div>
+            <div class="march-track-ticks" id="march-track-ticks"></div>
+            <button
+              class="march-handle"
+              id="march-handle"
+              type="button"
+              aria-label="Timeline scrub handle"
+            ></button>
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
+  </section>
+</main>
 
     <!-- ════════════════════════════════════════════════════════════ -->
     <!-- TAB 2B — RHETORIC TIMELINE                                      -->
@@ -866,6 +941,12 @@
             >
           </div>
         </div>
+<!-- 
+        - Border Specticale
+        - UTK
+        - Legislation
+        - Rhetoric
+         -->
 
         <div class="glossary-item">
           <div class="glossary-term">
