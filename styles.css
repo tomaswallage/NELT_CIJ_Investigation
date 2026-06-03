@@ -516,13 +516,27 @@ strong {
   padding-top: 0.35rem;
 }
 
-.rhetoric-grid-top { top: 0%; }
-.rhetoric-grid-mid-0 { top: 15%; }
-.rhetoric-grid-mid-1 { top: 30%; }
-.rhetoric-grid-mid-2 { top: 46%; }
-.rhetoric-grid-mid-3 { top: 63%; }
-.rhetoric-grid-mid-4 { top: 79.5%; }
-.rhetoric-grid-bottom { top: 96%; }
+.rhetoric-grid-top {
+  top: 0%;
+}
+.rhetoric-grid-mid-0 {
+  top: 15%;
+}
+.rhetoric-grid-mid-1 {
+  top: 30%;
+}
+.rhetoric-grid-mid-2 {
+  top: 46%;
+}
+.rhetoric-grid-mid-3 {
+  top: 63%;
+}
+.rhetoric-grid-mid-4 {
+  top: 79.5%;
+}
+.rhetoric-grid-bottom {
+  top: 96%;
+}
 
 .rhetoric-lines {
   position: absolute;
@@ -583,7 +597,8 @@ strong {
   position: absolute;
   left: 18px;
   top: 50%;
-  transform: translateY(-50%) translate(var(--tooltip-x, 18px), var(--tooltip-y, 0px));
+  transform: translateY(-50%)
+    translate(var(--tooltip-x, 18px), var(--tooltip-y, 0px));
   width: 220px;
   padding: 0.85rem 1rem;
   background: var(--bg);
@@ -652,7 +667,7 @@ strong {
   top: 0;
   left: calc(
     var(--rail-start) +
-    ((var(--col) - 1) * (var(--rail-col-width) + var(--rail-gap)))
+      ((var(--col) - 1) * (var(--rail-col-width) + var(--rail-gap)))
   );
   width: var(--rail-col-width);
 
@@ -727,7 +742,7 @@ strong {
   .rhetoric-node {
     width: 130px;
     padding: 0.45rem 0.55rem;
-  transform: translate(-7%, -60%);
+    transform: translate(-7%, -60%);
   }
 
   .rhetoric-node-year {
