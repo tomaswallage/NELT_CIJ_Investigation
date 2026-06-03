@@ -109,7 +109,7 @@ strong {
   padding: 3rem clamp(0.75rem, 1.5vw, 2rem);
   display: flex;
   align-items: center;
-  width: clamp(20rem, 25vw, 28rem);
+  /* width:25vw; */
   height: 100vh;
   position: sticky;
   z-index: 100;
@@ -148,19 +148,28 @@ strong {
   font-family: var(--sans);
   font-size: 0.8rem;
   text-align: left;
-  /* text-transform: uppercase; */
   letter-spacing: 0.12em;
   color: var(--text-muted);
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0 1.05rem;
-  height: var(--nav-h);
-  /* border-bottom: 2px solid transparent; */
-  transition:
-    color 0.2s,
-    border-color 0.2s;
+  padding: 0.4rem 1.05rem;
+  min-height: 3.2rem;
+  width: 100%;
   position: relative;
+  transition: color 0.2s, border-color 0.2s;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.08rem;
+  line-height: 1.15;
+}
+
+.nav-tabs li button span {
+  display: block;
+  white-space: nowrap;
 }
 
 .nav-tabs li button:hover {
@@ -799,7 +808,7 @@ strong {
 }
 
 .law-marker:hover p {
-  font-size: 0.5rem;
+  /* font-size: 0.5rem; */
   line-height: 1.2;
 }
 
