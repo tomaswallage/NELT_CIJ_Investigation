@@ -10,7 +10,9 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&family=Playfair+Display:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
     <script src="script.js"></script>
+    <script src="rhetoric-graph.js"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -111,8 +113,11 @@
   <section class="rhetoric-map" data-year-min="1905" data-year-max="2025">
     <div class="rhetoric-map-meta">
       <h3>
-        Timeline of rhetoric sentiment highlighting eras and connecting legislation.
+        Rhetoric Timeline
       </h3>
+      <p class="rhetoric-chart-note">
+      A general guide to major immigration-related rhetoric shifts in the UK, rating sentiment value for each era, and the legislation that accompanied the journey.
+    </p>
     </div>
 
     <div class="rhetoric-layout">
@@ -352,6 +357,58 @@
       </aside>
     </div>
   </section>
+  <section class="rhetoric-chart-section">
+  <div class="rhetoric-chart-meta">
+    <h3>MEDIA FRAMES</h3>
+    <p class="rhetoric-chart-note">
+      Yearly frame frequency per million words in the Guardian and Telegraph.
+    </p>
+  </div>
+
+  <div class="rhetoric-chart-panel">
+    <div id="frame-comparison-chart"></div>
+  </div>
+</section>
+<div class="rhetoric-chart-text">
+  <div class="rhetoric-chart-text-block">
+    <h4>Methodology</h4>
+    <p>
+      This graph tracks recurring immigration frames across coverage in the
+      Guardian and the Telegraph using a dictionary-based text analysis. Each
+      article is treated as one observation, with headline, standfirst, trail
+      text, and body text combined into a single analysis field before lexical
+      matches are counted and aggregated by year.
+    </p>
+    <p>
+      The four frame families used here are threat/crisis, control/legality,
+      humanitarian, and integration/economy. To make years and outlets
+      comparable, the graph uses normalized frequencies per million words rather
+      than raw counts alone, so the lines show the density of framing language
+      in the coverage rather than simply the volume of articles published. 
+    </p>
+    <p>
+      To read more into the methodology see <a href="https://github.com/violabylucas/news_data_vis">the Full Github Repo</a>
+    </p>
+  </div>
+
+  <div class="rhetoric-chart-text-block">
+    <h4>Reading the graph</h4>
+    <p>
+      Read the chart as a measure of changing rhetorical emphasis over time, not
+      as a claim that each article belongs to only one frame. The wider pattern
+      suggests that humanitarian language remains especially prominent in the
+      Guardian, while the Telegraph more often shows stronger control/legality
+      and mixed crisis framing, particularly in later years.
+    </p>
+    <p>
+      Across both outlets, the mid-2010s and 2020s appear as important periods
+      of rhetorical change, with sharper peaks in crisis and control language
+      and a weaker emphasis on integration and economy than in earlier phases.
+      These trends are best used as a guide for closer reading rather than as a
+      complete interpretation on their own.
+    </p>
+  </div>
+</div>
 </main>
 
     <!-- ════════════════════════════════════════════════════════════ -->
