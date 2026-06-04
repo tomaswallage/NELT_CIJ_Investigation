@@ -85,7 +85,7 @@ iframe {
   width: 100%;
   max-width: 980px;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: 0px solid var(--border);
 }
 .march-viewport {
   width: 100%;
@@ -105,11 +105,11 @@ iframe {
   inset: 0;
   transform-origin: top left;
   z-index: 1;
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     rgba(224, 90, 30, 0.03) 0%,
     rgba(224, 90, 30, 0) 28%
-  );
+  ); */
   display: grid;
   grid-template-columns: 300px 1fr 160px 50px;
   grid-template-areas: "media map time track";
