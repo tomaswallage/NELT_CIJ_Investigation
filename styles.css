@@ -67,6 +67,333 @@ iframe {
   border: 0;
 }
 
+/* ── March Embedded Timeline ───────────────────────────────────── */
+.march-chart-note {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  max-width: none;
+  padding-bottom: 1.5rem;
+}
+.march-embed {
+  padding: 2rem 4.7rem 3rem;
+  width: 100%;
+}
+.march-panel {
+  width: 100%;
+  max-width: 980px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.march-viewport {
+  width: 100%;
+  aspect-ratio: 980 / 760;
+  position: relative;
+  min-height: 770px;
+  max-height: 72vh;
+  margin-inline: auto;
+  overflow: hidden;
+}
+.march-stage {
+  width: 980px;
+  height: 760px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  inset: 0;
+  transform-origin: top left;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(224, 90, 30, 0.03) 0%,
+    rgba(224, 90, 30, 0) 28%
+  );
+  display: grid;
+  grid-template-columns: 300px 1fr 160px 50px;
+  grid-template-areas: "media map time track";
+}
+.march-map-col,
+.march-time-col,
+.march-track-col,
+.march-time-axis,
+.march-track {
+  min-height: 100%;
+  height: 100%;
+}
+/* Layering */
+.march-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+  overflow: visible;
+}
+.march-media,
+.march-time-col,
+.march-track-col {
+  position: relative;
+  z-index: 3;
+}
+.march-map-col {
+  grid-area: map;
+  min-width: 0;
+  min-height: 100%;
+  position: relative;
+  z-index: 1;
+  padding: 0.75rem;
+}
+.march-map-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center top;
+  user-select: none;
+  pointer-events: none;
+  padding-bottom: 2rem;
+  margin-top: 1rem;
+  margin-right: 0rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+/* Media column */
+.march-media {
+  grid-area: media;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4rem;
+  padding-bottom: 2rem;
+  margin-top: 1rem;
+  margin-right: 0rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+}
+.march-caption {
+  width: fit-content;
+  max-width: 100%;
+  border: 1.5px solid #c8102e;
+  background: var(--bg);
+  padding: 1.2rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04);
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+.march-caption-time {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+.march-caption-text {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #012169;
+  white-space: pre-wrap;
+  max-width: 34ch;
+}
+.march-video-frame {
+  margin-top: auto;
+  align-self: flex-end;
+  border: 1px solid #aab2bd;
+  background: #eef0f3;
+  position: relative;
+  overflow: hidden;
+}
+.march-video-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid #aab2bd;
+  pointer-events: none;
+}
+.march-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: #eef0f3;
+}
+/* Time / track columns */
+.march-time-col {
+  grid-area: time;
+  position: relative;
+  height: 90%;
+  min-height: 80%;
+  padding-top: 3rem;
+  padding-right: 1.5rem;
+}
+.march-track-col {
+  grid-area: track;
+  position: relative;
+  height: 90%;
+  min-height: 80%;
+  padding-top: 3rem;
+  padding-right: 1.5rem;
+}
+.march-time-axis,
+.march-track {
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+}
+.march-time-axis-line,
+.march-track-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: #aab2bd;
+}
+.march-time-ticks,
+.march-track-ticks {
+  position: absolute;
+  inset: 0;
+}
+.march-time-tick,
+.march-track-tick {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #012169;
+  transition:
+    background 0.2s ease,
+    width 0.2s ease,
+    height 0.2s ease;
+}
+.march-time-tick,
+.march-track-tick {
+  width: 12px;
+  height: 1.5px;
+}
+.march-time-tick.is-active,
+.march-track-tick.is-active {
+  background: #c8102e;
+  width: 18px;
+  height: 2px;
+}
+.march-axis-end {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #aab2bd;
+  white-space: nowrap;
+}
+.march-axis-end-top {
+  top: -1.1rem;
+}
+.march-axis-end-bottom {
+  bottom: -1.1rem;
+}
+.march-active-time {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c8102e;
+  white-space: nowrap;
+  background: var(--bg);
+  padding: 0 0.2rem;
+}
+.march-track {
+  touch-action: none;
+  outline: none;
+}
+.march-track:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(224, 30, 30, 0.2);
+}
+.march-handle {
+  position: absolute;
+  left: 50%;
+  width: 36px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+  border: 0;
+  background: transparent;
+  cursor: grab;
+}
+.march-handle::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 50%;
+  height: 2.5px;
+  transform: translateY(-50%);
+  background: #c8102e;
+}
+.march-handle:active {
+  cursor: grabbing;
+}
+/* Overlay graphics */
+.march-overlay-path-base {
+  fill: none;
+  stroke: #c6ccd4;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.march-overlay-path-progress {
+  fill: none;
+  stroke: #012169;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.march-overlay-end {
+  fill: none;
+  stroke: #aab2bd;
+  stroke-width: 1;
+}
+.march-overlay-point {
+  fill: rgba(1, 33, 105, 0.12);
+  stroke: rgba(1, 33, 105, 0.9);
+  stroke-width: 0.75;
+}
+.march-overlay-point.is-active {
+  fill: #c8102e;
+  stroke: #c8102e;
+}
+.march-overlay-playhead {
+  fill: #c8102e;
+}
+.march-connector-line {
+  stroke: #c8102e;
+  stroke-width: 1.4;
+  fill: none;
+}
+.march-connector-beam {
+  fill: rgba(200, 16, 46, 0.07);
+  stroke: none;
+}
+/* Medium desktop: collapse slightly earlier, but keep same layout */
+@media (max-width: 1100px) {
+  .march-caption-text {
+    max-width: 30ch;
+    font-size: 0.78rem;
+  }
+}
+
 /* ── Typography ────────────────────────────────────────────────── */
 h1 {
   font-family: var(--sans);
