@@ -61,14 +61,24 @@ body {
 
 /* ── March Embedded Timeline ───────────────────────────────────── */
 
+.march-chart-note {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  max-width: none;
+  padding-bottom: 1.5rem;
+}
+
 .march-embed {
-  padding: 2rem 1rem 3rem;
+  padding: 2rem 4.7rem 3rem;
   width: 100%;
 }
 
 .march-panel {
   width: 100%;
-  max-width: none;
+  max-width: 980px;
   overflow: hidden;
   border: 1px solid var(--border);
 }
@@ -92,6 +102,12 @@ body {
   inset: 0;
   transform-origin: top left;
   z-index: 1;
+
+  background: linear-gradient(
+    180deg,
+    rgba(224, 90, 30, 0.03) 0%,
+    rgba(224, 90, 30, 0) 28%
+  );
 
   display: grid;
   grid-template-columns: 300px 1fr 160px 50px;
@@ -236,6 +252,7 @@ body {
   height: 90%;
   min-height: 80%;
   padding-top: 3rem;
+  padding-right: 1.5rem;
 }
 
 .march-track-col {
@@ -244,6 +261,7 @@ body {
   height: 90%;
   min-height: 80%;
   padding-top: 3rem;
+  padding-right: 1.5rem;
 }
 
 .march-time-axis,
