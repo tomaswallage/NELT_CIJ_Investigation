@@ -59,6 +59,14 @@ body {
   z-index: 9999;
 }
 
+iframe {
+  position: relative;
+  top: 4px;
+  left: 160px;
+  z-index: 100;
+  border: 0;
+}
+
 /* ── Typography ────────────────────────────────────────────────── */
 h1 {
   font-family: var(--sans);
@@ -86,6 +94,7 @@ h3 {
 p {
   max-width: 68ch;
   color: var(--text);
+  line-height: 1.5;
 }
 a {
   color: var(--accent);
@@ -104,7 +113,7 @@ strong {
 /* ── Header / Site Title ───────────────────────────────────────── */
 .site-header {
   /* border-bottom: 1px solid var(--border); */
-  border-right: 1px solid var(--border);
+  border-right: 1px solid var(--accent);
   /* top/bottom 3rem; left/right half of that using half of clamp values */
   padding: 3rem clamp(0.75rem, 1.5vw, 2rem);
   display: flex;
@@ -194,13 +203,14 @@ strong {
 
 /* ── Main Page ─────────────────────────────────────────────────── */
 .hero {
+  display: fit-content;
   padding: 3rem 5vw clamp(3rem, 6vw, 5rem);
   width: 90vw;
   /* border-bottom: 1px solid var(--border); */
   /* background: red; */
   position: relative;
   overflow: hidden;
-  height: 200vh;
+  height: 240vh;
 }
 
 .hero::before {
@@ -234,7 +244,7 @@ strong {
 .hero-intro {
   font-size: 1.1rem;
   font-weight: 300;
-  line-height: 1.75;
+  /* line-height: 1.75; */
   max-width: 60ch;
   color: var(--text);
   margin-bottom: 2.5rem;
@@ -260,6 +270,18 @@ strong {
   background: var(--accent);
   color: var(--bg);
   text-decoration: none;
+}
+
+.youtubeVid {
+  position: relative;
+  padding: 0;
+  left: 0;
+}
+
+.bodyImg {
+  position: relative;
+  width: 650px;
+  height: auto;
 }
 
 /* Content sections */
