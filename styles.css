@@ -424,7 +424,7 @@ h1 {
   font-family: var(--sans);
   font-size: clamp(2rem, 4vw, 3.4rem);
   font-weight: 400;
-  color: var(--text);
+  color: var(--accent);
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
@@ -513,9 +513,9 @@ main {
 
 .nav-tabs li button {
   font-family: var(--sans);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-align: left;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.09em;
   color: var(--text-muted);
   background: none;
   border: none;
@@ -524,7 +524,9 @@ main {
   min-height: 2.2rem;
   width: 100%;
   position: relative;
-  transition: color 0.2s, border-color 0.2s;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
 
   display: flex;
   flex-direction: column;
@@ -559,7 +561,7 @@ main {
 
 /* ── Main Page ─────────────────────────────────────────────────── */
 .hero {
-  padding: 3rem clamp(1.5rem, 3vw, 4rem) clamp(3rem, 6vw, 5rem);
+  padding: 3rem 5vw clamp(3rem, 6vw, 5rem);
   width: 90vw;
   /* border-bottom: 1px solid var(--border); */
   /* background: red; */
@@ -668,8 +670,8 @@ main {
 
 /* ── Timeline ──────────────────────────────────────────────────── */
 .section-header {
-  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem) 2rem;
-  border-bottom: 1px solid var(--border);
+  padding: 3rem 5vw 2rem;
+  /* border-bottom: 1px solid var(--border); */
 }
 
 .section-header h3 {
@@ -815,7 +817,7 @@ main {
 
 /* ── Rhetoric Map ─────────────────────────────────────────────── */
 .rhetoric-map {
-  padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 4rem;
+  padding: 2.5rem 5vw 4rem;
 }
 
 .rhetoric-map-meta {
