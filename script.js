@@ -11,21 +11,41 @@ function switchTab(id, btn) {
   if (panel) panel.classList.add("active");
   if (btn) btn.classList.add("active");
 
-  if (id === "timeline") {
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      window.MarchTimeline?.refresh?.();
-
-      setTimeout(() => {
-        window.MarchTimeline?.refresh?.();
-      }, 150);
-    });
-  });
-}
+    if (id === "timeline") {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          refreshMarchLayout();
+          setTimeout(refreshMarchLayout, 150);
+        });
+      });
+    }
 
   if (id === "rhetoric") {
     requestAnimationFrame(positionRhetoricMap);
   }
+}
+
+function scaleMarchStage() {
+  const viewport = document.getElementById("march-viewport");
+  const stage = document.getElementById("march-stage");
+  if (!viewport || !stage) return;
+
+  const baseW = 980;
+  const baseH = 760;
+
+  const scale = Math.min(
+    viewport.clientWidth / baseW,
+    viewport.clientHeight / baseH
+  );
+
+  stage.style.transform = `scale(${scale})`;
+}
+
+function refreshMarchLayout() {
+  scaleMarchStage();
+  requestAnimationFrame(() => {
+    window.MarchTimeline?.refresh?.();
+  });
 }
 
 function normalise(value, min, max) {
@@ -75,22 +95,10 @@ function positionRhetoricMap() {
 
 document.addEventListener("DOMContentLoaded", () => {
   positionRhetoricMap();
-
-  if (document.getElementById("tab-timeline")?.classList.contains("active")) {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        window.MarchTimeline?.refresh?.();
-      });
-    });
-  }
+  refreshMarchLayout();
 });
 
 window.addEventListener("resize", () => {
   positionRhetoricMap();
-
-  if (document.getElementById("tab-timeline")?.classList.contains("active")) {
-    requestAnimationFrame(() => {
-      window.MarchTimeline?.refresh?.();
-    });
-  }
+  refreshMarchLayout();
 });

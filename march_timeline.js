@@ -406,11 +406,11 @@
     }
 
     if (els.video) {
-      els.video.muted = true;
+      els.video.muted = false;
       els.video.loop = true;
       els.video.playsInline = true;
       els.video.preload = "metadata";
-      els.video.setAttribute("muted", "");
+      // els.video.setAttribute("muted", "");
       els.video.setAttribute("playsinline", "");
     }
 
