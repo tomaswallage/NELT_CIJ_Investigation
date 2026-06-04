@@ -1,15 +1,51 @@
 function switchTab(id, btn) {
-  document
-    .querySelectorAll(".tab-panel")
-    .forEach((p) => p.classList.remove("active"));
-  document
-    .querySelectorAll(".nav-tabs button")
-    .forEach((b) => b.classList.remove("active"));
-  document.getElementById("tab-" + id).classList.add("active");
-  btn.classList.add("active");
+  document.querySelectorAll(".tab-panel").forEach((panel) => {
+    panel.classList.remove("active");
+  });
+
+  document.querySelectorAll(".nav-tabs button").forEach((button) => {
+    button.classList.remove("active");
+  });
+
+  const panel = document.getElementById(`tab-${id}`);
+  if (panel) panel.classList.add("active");
+  if (btn) btn.classList.add("active");
+
+    if (id === "timeline") {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          refreshMarchLayout();
+          setTimeout(refreshMarchLayout, 150);
+        });
+      });
+    }
+
   if (id === "rhetoric") {
     requestAnimationFrame(positionRhetoricMap);
   }
+}
+
+function scaleMarchStage() {
+  const viewport = document.getElementById("march-viewport");
+  const stage = document.getElementById("march-stage");
+  if (!viewport || !stage) return;
+
+  const baseW = 980;
+  const baseH = 760;
+
+  const scale = Math.min(
+    viewport.clientWidth / baseW,
+    viewport.clientHeight / baseH
+  );
+
+  stage.style.transform = `scale(${scale})`;
+}
+
+function refreshMarchLayout() {
+  scaleMarchStage();
+  requestAnimationFrame(() => {
+    window.MarchTimeline?.refresh?.();
+  });
 }
 
 function normalise(value, min, max) {
@@ -32,10 +68,8 @@ function positionRhetoricMap() {
   nodes.forEach((node) => {
     const year = Number(node.dataset.year);
     const sentiment = Number(node.dataset.sentiment);
-
     const x = normalise(sentiment, sentimentMin, sentimentMax);
     const y = normalise(year, yearMin, yearMax);
-
     node.style.left = `${x}%`;
     node.style.top = `${y}%`;
   });
@@ -59,5 +93,12 @@ function positionRhetoricMap() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", positionRhetoricMap);
-window.addEventListener("resize", positionRhetoricMap);
+document.addEventListener("DOMContentLoaded", () => {
+  positionRhetoricMap();
+  refreshMarchLayout();
+});
+
+window.addEventListener("resize", () => {
+  positionRhetoricMap();
+  refreshMarchLayout();
+});
