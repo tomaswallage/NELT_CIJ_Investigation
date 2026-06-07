@@ -440,7 +440,7 @@ strong {
 /* ── Header / Site Title ───────────────────────────────────────── */
 .site-header {
   /* border-bottom: 1px solid var(--border); */
-  border-right: 1px solid var(--accent);
+  /* border-right: 1px solid var(--accent); */
   /* top/bottom 3rem; left/right half of that using half of clamp values */
   padding: 3rem clamp(0.75rem, 1.5vw, 2rem);
   display: flex;
@@ -482,9 +482,10 @@ main {
 .nav-tabs {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 0px;
   list-style: none;
   width: 100%;
+  border: 1px solid var(--accent);
 }
 
 .nav-tabs li button {
@@ -492,23 +493,21 @@ main {
   font-size: 0.9rem;
   text-align: left;
   letter-spacing: 0.09em;
-  color: var(--text-muted);
+  color: var(--accent);
   background: none;
-  border: none;
+  border: 1px solid var(--accent);
   cursor: pointer;
-  padding: 0.1rem 2.05rem;
+  padding: 0rem 2.05rem;
   min-height: 2.2rem;
   width: 100%;
   position: relative;
   transition:
     color 0.2s,
     border-color 0.2s;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 0.08rem;
   line-height: 1.15;
 }
 
@@ -523,8 +522,8 @@ main {
 }
 
 .nav-tabs li button.active {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  color: rgb(255, 255, 255);
+  background: var(--accent);
 }
 
 /* ── Tab Panels ────────────────────────────────────────────────── */
@@ -539,12 +538,12 @@ main {
 .hero {
   display: fit-content;
   padding: 3rem 5vw clamp(3rem, 6vw, 5rem);
-  width: 90vw;
+  width: 80vw;
   /* border-bottom: 1px solid var(--border); */
   /* background: red; */
   position: relative;
   overflow: hidden;
-  height: 240vh;
+  height: 260vh;
 }
 
 .hero::before {
@@ -576,12 +575,11 @@ main {
 }
 
 .hero-intro {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 300;
   /* line-height: 1.75; */
-  max-width: 60ch;
+  max-width: 65ch;
   color: var(--text);
-  margin-bottom: 2.5rem;
 }
 
 .hero-cta {
