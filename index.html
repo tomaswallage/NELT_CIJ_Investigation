@@ -18,7 +18,7 @@
   </head>
   <body>
     <div class="custom-cursor"></div>
-    <script src="cursor.js"></script>
+    <!-- <script src="cursor.js"></script> -->
     <!-- ── Header ─────────────────────────────────────────────────── -->
     <header class="site-header">
       <!-- <div class="site-title"><a href="https://www.hostileenvironments.eu/about#:~:text=The%20term%20%E2%80%9Chostile%20environment%E2%80%9D,migrants%20access%20to%20work">▪</a> Hostile Environments</div> -->
@@ -27,7 +27,7 @@
         <ul class="nav-tabs">
           <li>
             <button class="active" onclick="switchTab('main', this)">
-              <span>Main</span>
+              <span>Hostile Environments</span>
               <span></span>
             </button>
           </li>
@@ -45,14 +45,26 @@
           </li>
           <!-- <li><button onclick="switchTab('media', this)">Media</button></li> -->
           <li>
+            <button onclick="switchTab('timeline', this)">
+              <span>Misinformation</span>
+              <span></span>
+            </button>
+          </li>
+          <li>
             <button onclick="switchTab('glossary', this)">
               <span></span>
               <span>Glossary</span>
             </button>
           </li>
+          <li>
+            <button onclick="switchTab('timeline', this)">
+              <span>Gallery</span>
+              <span></span>
+            </button>
+          </li>
         </ul>
       </nav>
-      <img src="assets/cciLogo.png" width="60px" height="auto">
+      <img src="assets/cciXcijLogo.png" width="200px" height="auto" />
     </header>
 
     <!-- ════════════════════════════════════════════════════════════ -->
@@ -62,11 +74,12 @@
       <section class="hero">
         <!-- <p class="hero-eyebrow">Research Project · 2025–2026</p> -->
         <h1>Hostile Environments</h1>
+        <h1></h1>
         <p class="hero-intro">
           Investigating the ‘Hostile Environment’ online, how right-wing
           networks manufacture false narratives.
         </p>
-      </br>
+        <br />
         <p class="hero-intro">
           The term ‘hostile environment’ refers to hostility as the weather
           opposed to an explicit and sudden crisis; it is a steady background
@@ -75,48 +88,87 @@
           feedback loops (created by influential people) and the words they use
           to describe it.
         </p>
-      </br>
+        <br />
         <iframe
           class="youtubeVid"
           src="https://www.youtube.com/embed/rkMTHqQNNTI"
           width="650px"
           height="365px"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+          "
         ></iframe>
-      </br>
-      </br>
-        <p class="hero-intro">How does Britains hostile border relocate itself through public-lead action, 
-          both in real life and on social media?</p>
-        </br>
-        <p class="hero-intro">An ongoing investigation into how right-wing language is acting as a catalyst 
-          towards a more hostile country on the topic of migration. How can the analysis of one event, 
-          the ‘Unite The Kingdom’ march [16th of May 2026], give us insight as too how a section of the 
-          general public may carry views that are incommensurate with the ‘issues’ that they find so fundamental.</p>
-        </br>
-        <p class="hero-intro">In this investigation we acknowledge the ‘hostile environment’ as a steady background condition 
-          rather than a one off event. The violence it describes is slow and ordinary and hides in plain sight, 
-          normalised by feedback loops and public rhetoric. We explore right-wing networks of language 
-          and their active role in the creation and nourishment of said hostile feedback loops or echo chambers.</p>
-        </br>
-        <p class="hero-intro">Focusing on the language in use by the right, both physically at the march and digitally on social media, 
-          we interrogate what opinions/statements these people release into public view. During our research 
-          we found two statements that were common-place across both fields. “Unite the Kingdom” and “Stop the Boats”. 
-          Our investigation focuses on the first.</p>
-        </br>
+        <br />
+        <br />
+        <p class="hero-intro">
+          How does Britains hostile border relocate itself through public-lead
+          action, both in real life and on social media?
+        </p>
+        <br />
+        <p class="hero-intro">
+          An ongoing investigation into how right-wing language is acting as a
+          catalyst towards a more hostile country on the topic of migration. How
+          can the analysis of one event, the ‘Unite The Kingdom’ march [16th of
+          May 2026], give us insight as too how a section of the general public
+          may carry views that are incommensurate with the ‘issues’ that they
+          find so fundamental.
+        </p>
+        <br />
+        <p class="hero-intro">
+          In this investigation we acknowledge the ‘hostile environment’ as a
+          steady background condition rather than a one off event. The violence
+          it describes is slow and ordinary and hides in plain sight, normalised
+          by feedback loops and public rhetoric. We explore right-wing networks
+          of language and their active role in the creation and nourishment of
+          said hostile feedback loops or echo chambers.
+        </p>
+        <br />
+        <p class="hero-intro">
+          Focusing on the language in use by the right, both physically at the
+          march and digitally on social media, we interrogate what
+          opinions/statements these people release into public view. During our
+          research we found two statements that were common-place across both
+          fields. “Unite the Kingdom” and “Stop the Boats”. Our investigation
+          focuses on the first.
+        </p>
+        <br />
         <img class="bodyImg" src="assets/XscreenshotSearch.png" />
-        </br>
-      </br>
-        <p class="hero-intro">Using ‘#UniteTheKingdom’ hashtag as our data gathering parameter, we collected 2,400~ posts from ‘X’ 
-          created on the 16th of May. The scraped data was then fed into an LLM which classified hostility levels 
-          on an ordinal score from 0-3. Rather than classifying the individual tweets in the traditional 
-          positive/negative sense, the hostility levels accounted for the unique comment/response style structure that 
-          characterises ‘X’, reading and analysing both the comment itself and the original post/comment for hostility 
-          separately before reaching a rounded conclusion.</p>
-          
-      </br>
-      </br>
-
+        <br />
+        <br />
+        <p class="hero-intro">
+          Using ‘#UniteTheKingdom’ hashtag as our data gathering parameter, we
+          collected 2,400~ posts from ‘X’ created on the 16th of May. The
+          scraped data was then fed into an LLM which classified hostility
+          levels on an ordinal score from 0-3. Rather than classifying the
+          individual tweets in the traditional positive/negative sense, the
+          hostility levels accounted for the unique comment/response style
+          structure that characterises ‘X’, reading and analysing both the
+          comment itself and the original post/comment for hostility separately
+          before reaching a rounded conclusion.
+        </p>
+        <br />
+        <h2>Visualing Hostility</h2>
+        <br />
+        <p>
+          We worked on creating a visual that could communicate the language
+          used in these X posts. It was important to highlight how harmful
+          language can be camoflauged in hashtags but very much still present
+          and impactful.
+        </p>
         <!-- <a href="#" class="hero-cta">Read the Report ↗</a> -->
       </section>
+      <iframe
+        class="iClassification"
+        src="https://tomaswallage.github.io/ClassificationVisualisation/"
+        width="1800px"
+        height="850px"
+        scrolling="no"
+      ></iframe>
 
       <!-- <div class="content-grid">
         <div class="content-card">
@@ -150,18 +202,66 @@
     <!-- TAB 2 — MARCH TIMELINE                                      -->
     <!-- ════════════════════════════════════════════════════════════ -->
     <main id="tab-timeline" class="tab-panel">
-<section class="hero">
-      <!-- <div class="section-header"> -->
+      <section class="hero">
+        <!-- <div class="section-header"> -->
         <!-- <h3>Chronology</h3> -->
         <h1>March Timeline</h1>
-      <!-- </div> -->
-    <p>The 'Unite the Kingdom March', organised by Tommy Robinson (Real name: Stephen Christopher Yaxley-Lennon) 
-      served as a proxy for our investigation into the sphere of hostility in the UK. When analysing the language 
-      used at this event, we not only noticed the aggresive nature of signs and chants but also the parralels between 
-      this event and historically fascist events in the UK.</p>
+        <!-- </div> -->
+        <p>
+          At the core of our investigation was the “Unite the Kingdom” march
+          that took place on the 16th of May 2026. This march acted as the
+          epicentre for our analysis, using it as a way to anchor our
+          investigation in a very recent political moment that amplified the use
+          right-wing language and put it directly into the public view.
+        </p>
+      </section>
+      <video class="utkPano" width="1500px" loop autoplay>
+        <source src="assets/33-copy000.mp4" type="video/mp4" />
+        Your browser does not support the video tag
+      </video>
+      <section class="hero">
+        <br />
+        <p>
+          Below is an interactive timeline that geolocates videos taken from ‘X’
+          using the hashtag: ‘#UniteTheKingdom’. These videos are plotted at the
+          location they were taken along the route of the march, states when
+          these videos were posted on ‘X’ and the captions that they were posted
+          with.
+        </p>
+        <br />
+        <p>
+          The timeline allows you view the march through the eyes of a social
+          media platform, revealing how shared content can reciprocate and
+          magnify hostility, especially during an event designed to be hostile
+          in its nature.
+        </p>
+
+
+        <!--
+      <div class="rhetoric-chart-text">
+        <div class="rhetoric-chart-text-block">
+          <h4>What is happening</h4>
+          <p>Nathan Explains what is happening.</p>
+          <p>And explains so more...</p>
+        </div>
+
+        <div class="rhetoric-chart-text-block">
+          <h4>What this taught us</h4>
+          <p>Our insights...</p>
+          <p>And more insights...</p>
+        </div>
+      </div>
+    -->
+      </section>
+      
+        <!-- <iframe class="iTimeline" src="https://justnathandavies.github.io/march_timeline/" padding="none" width="2000px" height="1000px" scrolling="no"></iframe> -->
+        
       <section class="march-embed">
         <h3>Geolocated media</h3>
-        <p class="march-chart-note">Use the right most scrubber to traverse through the journey of the march</p>
+        <p class="march-chart-note">
+          Use the right most scrubber to traverse through the journey of the
+          march
+        </p>
         <p></p>
         <div class="march-panel" id="march-root">
           <div class="march-viewport" id="march-viewport">
@@ -241,31 +341,31 @@
           </div>
         </div>
       </section>
-    <!--
-      <div class="rhetoric-chart-text">
-        <div class="rhetoric-chart-text-block">
-          <h4>What is happening</h4>
-          <p>Nathan Explains what is happening.</p>
-          <p>And explains so more...</p>
-        </div>
-
-        <div class="rhetoric-chart-text-block">
-          <h4>What this taught us</h4>
-          <p>Our insights...</p>
-          <p>And more insights...</p>
-        </div>
-      </div>
-    -->
-</section>
     </main>
 
     <!-- ════════════════════════════════════════════════════════════ -->
     <!-- TAB 2B — RHETORIC TIMELINE                                      -->
     <!-- ════════════════════════════════════════════════════════════ -->
     <main id="tab-rhetoric" class="tab-panel">
-      <div class="section-header">
+      <div class="hero">
         <!-- <h3>GENEALOGY</h3> -->
         <h1>Rhetoric Research</h1>
+        <p>
+          The timeline traces a longer history of how migration has been spoken
+          about in Britain, from the early language of the “alien” to more
+          recent vocabularies of crisis, security, and border control. What
+          matters here is not a single speech or moment, but the gradual
+          hardening of a political common sense in which suspicion and exclusion
+          start to feel ordinary.
+        </p>
+        <br />
+        <p>
+          Set alongside it, the legislation shows how those shifts in language
+          are repeatedly translated into law and administration. Read together,
+          the two columns suggest that the hostile environment is not an abrupt
+          invention, but the outcome of a longer process in which rhetoric and
+          policy steadily begin to reinforce one another.
+        </p>
       </div>
 
       <section class="rhetoric-map" data-year-min="1905" data-year-max="2025">
@@ -706,7 +806,7 @@
           </aside>
         </div>
       </section>
-      <div class="rhetoric-chart-text">
+      <!-- <div class="rhetoric-chart-text">
         <div class="rhetoric-chart-text-block">
           <h4>Rhetoric timeline</h4>
           <p>
@@ -729,7 +829,29 @@
             which rhetoric and policy steadily begin to reinforce one another.
           </p>
         </div>
-      </div>
+      </div> -->
+
+      <section class="hero">
+        <h2>Methodology</h2>
+        <br />
+        <p>
+          This graph tracks recurring immigration frames across coverage in the
+          Guardian and the Telegraph using a dictionary-based text analysis.
+          Each article is treated as one observation, with headline, standfirst,
+          trail text, and body text combined into a single analysis field before
+          lexical matches are counted and aggregated by year.
+        </p>
+        <br />
+        <p>
+          The four frame families used here are threat/crisis, control/legality,
+          humanitarian, and integration/economy. To make years and outlets
+          comparable, the graph uses normalized frequencies per million words
+          rather than raw counts alone, so the lines show the density of framing
+          language in the coverage rather than simply the volume of articles
+          published.
+        </p>
+      </section>
+
       <section class="rhetoric-chart-section">
         <div class="rhetoric-chart-meta">
           <h3>MEDIA FRAMES</h3>
@@ -743,7 +865,7 @@
           <div id="frame-comparison-chart"></div>
         </div>
       </section>
-      <div class="rhetoric-chart-text">
+      <!-- <div class="rhetoric-chart-text">
         <div class="rhetoric-chart-text-block">
           <h4>Methodology</h4>
           <p>
@@ -789,7 +911,28 @@
             own.
           </p>
         </div>
-      </div>
+      </div> -->
+
+      <section class="hero">
+        <h2>Reading the graph</h2>
+        <br />
+        <p>
+          Read the chart as a measure of changing rhetorical emphasis over time,
+          not as a claim that each article belongs to only one frame. The wider
+          pattern suggests that humanitarian language remains especially
+          prominent in the Guardian, while the Telegraph more often shows
+          stronger control/legality and mixed crisis framing, particularly in
+          later years.
+        </p>
+        <br />
+        <p>
+          Across both outlets, the mid-2010s and 2020s appear as important
+          periods of rhetorical change, with sharper peaks in crisis and control
+          language and a weaker emphasis on integration and economy than in
+          earlier phases. These trends are best used as a guide for closer
+          reading rather than as a complete interpretation on their own.
+        </p>
+      </section>
     </main>
 
     <!-- ════════════════════════════════════════════════════════════ -->

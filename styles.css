@@ -31,7 +31,7 @@
 
 html {
   scroll-behavior: smooth;
-  cursor: none;
+  /* cursor: none; */
 }
 
 body {
@@ -60,12 +60,19 @@ body {
   z-index: 9999;
 }
 
-iframe {
+.iClassification {
   position: relative;
   top: 4px;
-  left: 160px;
+  left: 80px;
   z-index: 100;
   border: 0;
+}
+
+.iTimeline {
+  position: relative;
+  z-index: 100;
+  border: 0;
+
 }
 
 /* ── March Embedded Timeline ───────────────────────────────────── */
@@ -79,12 +86,12 @@ iframe {
   padding-bottom: 1.5rem;
 }
 .march-embed {
-  padding: 2rem 4.7rem 3rem;
+  padding: 1rem 30rem 6rem;
   width: 100%;
 }
 .march-panel {
   width: 100%;
-  max-width: 980px;
+  max-width: 1080px;
   overflow: hidden;
   border: 0px solid var(--border);
 }
@@ -408,7 +415,7 @@ h2 {
   font-family: var(--sans);
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 400;
-  color: var(--text);
+  color: var(--accent);
   line-height: 1.25;
 }
 h3 {
@@ -420,7 +427,7 @@ h3 {
   font-weight: 500;
 }
 p {
-  line-height: 1.5;
+  line-height: 1.4;
 
   font-size: 1.2rem;
   font-weight: 300;
@@ -440,7 +447,7 @@ a {
 }
 a:hover {
   text-decoration: underline;
-  cursor: none;
+  cursor: grabbing;
 }
 
 strong {
@@ -529,7 +536,7 @@ main {
 
 .nav-tabs li button:hover {
   color: var(--text-muted);
-  cursor: none;
+  /* cursor: none; */
 }
 
 .nav-tabs li button.active {
@@ -548,13 +555,13 @@ main {
 /* ── Main Page ─────────────────────────────────────────────────── */
 .hero {
   display: fit-content;
-  padding: 3rem 5vw clamp(3rem, 6vw, 5rem);
+  padding: 3rem 24vw clamp(3rem, 6vw, 5rem);
   width: 80vw;
   /* border-bottom: 1px solid var(--border); */
   /* background: red; */
   position: relative;
   overflow: hidden;
-  height: 260vh;
+  height: auto;
 }
 
 .hero::before {
@@ -674,6 +681,10 @@ main {
 
 .section-header h3 {
   margin-bottom: 0.6rem;
+}
+
+.utkPano{
+  padding-left: 16vw;
 }
 
 .timeline {
