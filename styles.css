@@ -63,6 +63,8 @@ body {
 .iClassification {
   position: relative;
   top: 4px;
+  width: 80vw;
+  height: 70vh;
   left: 80px;
   z-index: 100;
   border: 0;
@@ -72,7 +74,6 @@ body {
   position: relative;
   z-index: 100;
   border: 0;
-
 }
 
 /* ── March Embedded Timeline ───────────────────────────────────── */
@@ -555,7 +556,7 @@ main {
 /* ── Main Page ─────────────────────────────────────────────────── */
 .hero {
   display: fit-content;
-  padding: 3rem 24vw clamp(3rem, 6vw, 5rem);
+  padding: 3rem 8vw clamp(3rem, 6vw, 5rem);
   width: 80vw;
   /* border-bottom: 1px solid var(--border); */
   /* background: red; */
@@ -683,8 +684,9 @@ main {
   margin-bottom: 0.6rem;
 }
 
-.utkPano{
-  padding-left: 16vw;
+.utkPano {
+  width: 60vw;
+  padding-left: 8vw;
 }
 
 .timeline {
